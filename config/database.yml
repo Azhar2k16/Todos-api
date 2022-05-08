@@ -1,0 +1,19 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  database: react_todo_development
+test:
+  <<: *default
+  database: react_todo_test
+
+
+  
+production:
+  <<: *default
+  database: react_todo_production
+  username: react_todo
+  password: <%= ENV['REACT_TODO_DATABASE_PASSWORD'] %>
